@@ -8,17 +8,17 @@ type ChannelCardProps = {
 };
 export function ChannelCard(props: ChannelCardProps) {
   return (
-    <div className="flex max-w-96 rounded border border-stone-200 bg-white shadow">
+    <div className="flex max-w-96 rounded border border-stone-200 bg-white shadow dark:border-neutral-600 dark:bg-transparent">
       <ChannelWhatsappFlag />
       <div className="flex w-full flex-col px-3 pb-2 pt-3">
-        <p className="text-base font-semibold">
+        <p className="text-base font-medium">
           Canal de Whatsapp ({formatSesionID(props.wa_sesionID)})
         </p>
-        <p className="mb-2 mt-0.5 text-stone-700">
+        <p className="mb-2 mt-0.5 text-stone-700 dark:text-stone-100">
           Creado el: {formatToUserDate(props.creadoEn)}
         </p>
         <button
-          className="ml-auto w-fit font-semibold text-red-700 hover:underline"
+          className="ml-auto w-fit font-semibold text-red-700 hover:underline dark:text-white"
           onClick={() => toast.warning("No implementado aún")}
         >
           Eliminar

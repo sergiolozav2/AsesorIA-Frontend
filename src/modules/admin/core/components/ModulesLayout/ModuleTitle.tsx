@@ -3,5 +3,5 @@ type ModuleTitleProps = {
 };
 
 export function ModuleTitle(props: ModuleTitleProps) {
-  return <h3 className="mt-7 px-4 font-medium">{props.children}</h3>;
+  return <h3 className="mt-6 px-4 font-semibold text-xl">{props.children}</h3>;
 }
