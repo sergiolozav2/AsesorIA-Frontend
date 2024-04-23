@@ -2,10 +2,21 @@ import tailwindCssAnimate from "tailwindcss-animate";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  plugins: [tailwindCssAnimate],
+  darkMode: ["class"],
+  content: ["./components/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
+      fontSize: {
+        sm: "15px",
+      },
       width: {
         "admin-navbar": "var(--admin-navbar-width)",
         "module-navbar": "var(--module-navbar-width)",
@@ -31,10 +42,11 @@ export default {
           600: "#924cdf",
           700: "#823dc5",
           800: "#68349f",
-          900: "#2A183D",
+          900: "#55317e",
           950: "#2A183D",
         },
       },
     },
   },
+  plugins: [tailwindCssAnimate],
 };
