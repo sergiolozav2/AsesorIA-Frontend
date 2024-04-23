@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --admin-navbar-width: 12rem;
+  --module-navbar-width: 13rem;
+}
