@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "./components/theme-provider";
 
 const router = createRouter({ routeTree });
 const queryClient = new QueryClient();
@@ -19,10 +20,12 @@ declare module "@tanstack/react-router" {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ToastContainer closeOnClick/>
-      <div className="flex min-h-screen flex-col bg-stone-100">
-        <RouterProvider router={router} />
-      </div>
+      <ThemeProvider>
+        <ToastContainer closeOnClick />
+        <div className="flex min-h-screen flex-col bg-stone-100">
+          <RouterProvider router={router} />
+        </div>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
