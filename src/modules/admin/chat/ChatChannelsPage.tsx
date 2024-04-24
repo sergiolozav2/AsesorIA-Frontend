@@ -23,10 +23,10 @@ export function ChatChannelsPage() {
     <div className="flex w-full flex-col">
       <ModuleTitle>Canales</ModuleTitle>
       <div className="mt-4 flex flex-col px-4 text-sm">
-        <h4 className="mb-2 text-stone-700 dark:text-white">Canales disponibles</h4>
+        <h4 className="mb-2 text-foreground">Canales disponibles</h4>
         <ChannelWhatsappCard onClick={handleShowDialog} />
         <div className="mt-6 flex flex-col">
-          <p className="mb-2 text-stone-700 dark:text-white">Tus canales</p>
+          <p className="mb-2 text-foreground">Tus canales</p>
           {isLoading && <LoadingModule />}
           <div className="flex flex-col gap-4">
             {data && <ChannelCardList list={data.list} />}

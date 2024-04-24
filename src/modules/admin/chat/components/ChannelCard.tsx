@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { formatToUserDate } from "../../core/utils/formatToUserDate";
-import { ChannelWhatsappFlag } from "./ChannelWhatsappFlag";
+import { WhatsappIcon } from "./WhatsappIcon";
 
 type ChannelCardProps = {
   creadoEn: string;
@@ -8,22 +8,24 @@ type ChannelCardProps = {
 };
 export function ChannelCard(props: ChannelCardProps) {
   return (
-    <div className="flex max-w-96 rounded border border-stone-200 bg-white shadow dark:border-neutral-600 dark:bg-transparent">
-      <ChannelWhatsappFlag />
-      <div className="flex w-full flex-col px-3 pb-2 pt-3">
-        <p className="text-base font-medium">
-          Canal de Whatsapp ({formatSesionID(props.wa_sesionID)})
-        </p>
-        <p className="mb-2 mt-0.5 text-stone-700 dark:text-stone-100">
+    <div className="flex items-center rounded border-b border-border px-5 py-3">
+      <WhatsappIcon />
+      <div className="ml-4 flex flex-col">
+        <div className="flex items-center">
+          <p className="font-medium">
+            Canal de Whatsapp ({formatSesionID(props.wa_sesionID)})
+          </p>
+        </div>
+        <p className="mt-0.5 text-muted-foreground">
           Creado el: {formatToUserDate(props.creadoEn)}
         </p>
-        <button
-          className="ml-auto w-fit font-semibold text-red-700 hover:underline dark:text-white"
-          onClick={() => toast.warning("No implementado aún")}
-        >
-          Eliminar
-        </button>
       </div>
+      <button
+        className="ml-auto w-fit rounded-md bg-destructive px-2 py-1 font-semibold text-destructive-foreground shadow-md hover:underline"
+        onClick={() => toast.warning("No implementado aún")}
+      >
+        Eliminar
+      </button>
     </div>
   );
 }
