@@ -6,6 +6,7 @@ import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "./components/theme-provider";
+import { ModeToggle } from "./components/ui/mode-toggle";
 
 const router = createRouter({ routeTree });
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ function App() {
         <div className="flex min-h-screen flex-col bg-stone-100">
           <RouterProvider router={router} />
         </div>
+      <ModeToggle />
       </ThemeProvider>
     </QueryClientProvider>
   );
