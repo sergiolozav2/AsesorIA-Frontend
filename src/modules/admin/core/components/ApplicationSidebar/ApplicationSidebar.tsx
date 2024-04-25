@@ -7,9 +7,9 @@ import {
 } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { SidebarLink } from "./components/SidebarLink";
-import { SidebarTitle } from "./components/SidebarTitle";
 import { GoPackage } from "react-icons/go";
 import { TbSitemap } from "react-icons/tb";
+import { SidebarSection } from "./components/SidebarSection";
 
 export function ApplicationSidebar() {
   return (
@@ -26,45 +26,37 @@ export function ApplicationSidebar() {
           <p className="font-semibold text-foreground">Asesor.IA</p>
         </div>
         <div className="h-full origin-left scale-x-0 pt-4 transition-transform md:scale-x-100">
-          <div className="flex flex-col gap-3 pl-3 pr-2 pt-4 font-medium">
-            <SidebarTitle
+          <div className="flex flex-col gap-1.5 pl-3 pr-2 pt-4 font-medium">
+            <SidebarLink
+              to="/admin/home"
               text="Inicio"
-              to="/admin/"
               icon={<MdOutlineHome />}
-            ></SidebarTitle>
-            <SidebarTitle to="/admin/chat" text="Chat" icon={<MdOutlineChat />}>
-              <SidebarLink
-                text="Canales"
-                to="/admin/chat/channels"
-                onClick={() => 0}
-              />
-              <SidebarLink
-                text="Conversaciones"
-                to="/admin/chat/messages"
-                onClick={() => 0}
-              />
-            </SidebarTitle>
-            <SidebarTitle
+            />
+            <SidebarSection text="Chat" icon={<MdOutlineChat />}>
+              <SidebarLink text="Canales" to="/admin/chat/channels" />
+              <SidebarLink text="Conversaciones" to="/admin/chat/messages" />
+            </SidebarSection>
+            <SidebarLink
               to="/admin/clients"
               text="Clientes"
               icon={<MdPeopleOutline />}
             />
-            <SidebarTitle
+            <SidebarLink
               to="/admin/products"
               text="Productos"
               icon={<GoPackage />}
             />
-            <SidebarTitle
+            <SidebarLink
               to="/admin/chatbot"
               text="Chatbot"
               icon={<TbSitemap />}
             />
-            <SidebarTitle
+            <SidebarLink
               to="/admin/events"
               text="Eventos"
               icon={<IoMdNotificationsOutline />}
             />
-            <SidebarTitle
+            <SidebarLink
               to="/admin/metrics"
               text="Métricas"
               icon={<MdOutlineAnalytics />}

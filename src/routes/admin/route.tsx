@@ -9,7 +9,7 @@ function AppLayout() {
   return (
     <>
       <ApplicationSidebar />
-      <div className="flex dark:bg-neutral-800">
+      <div className="flex">
         <div className="mr-0 transition-all md:mr-admin-navbar"></div>
         <Outlet />
       </div>
