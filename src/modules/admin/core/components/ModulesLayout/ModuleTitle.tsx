@@ -1,11 +1,20 @@
+import { MdMenu } from "react-icons/md";
+
 type ModuleTitleProps = {
   children: React.ReactNode;
 };
 
 export function ModuleTitle(props: ModuleTitleProps) {
   return (
-    <h3 className="ml-6 mt-2 px-4 text-xl font-semibold text-primary md:ml-0 md:mt-6">
-      {props.children}
-    </h3>
+    <div className="flex text-foreground/90">
+      <div className="mt-1 flex h-9 items-end p-1 md:hidden">
+        <button className="pointer-events-auto rounded-md px-1 py-0.5 text-2xl hover:bg-foreground/10">
+          <MdMenu />
+        </button>
+      </div>
+      <h3 className="mt-2 text-xl font-semibold md:ml-0 md:mt-6">
+        {props.children}
+      </h3>
+    </div>
   );
 }

@@ -20,9 +20,9 @@ export function ChatChannelsPage() {
   }
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col md:px-8 px-4">
       <ModuleTitle>Canales</ModuleTitle>
-      <div className="mt-4 flex flex-col px-4 text-sm">
+      <div className="mt-4 flex flex-col text-sm">
         <h4 className="mb-2 text-foreground">Canales disponibles</h4>
         <ChannelWhatsappCard onClick={handleShowDialog} />
         <div className="mt-6 flex flex-col">

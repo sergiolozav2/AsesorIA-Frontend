@@ -1,5 +1,4 @@
 import {
-  MdMenu,
   MdOutlineAnalytics,
   MdOutlineChat,
   MdOutlineHome,
@@ -14,12 +13,6 @@ import { SidebarSection } from "./components/SidebarSection";
 export function ApplicationSidebar() {
   return (
     <div className="pointer-events-none fixed inset-0 right-auto min-h-screen w-admin-navbar md:pointer-events-auto">
-      <div className="mt-1 flex h-9 items-end p-1 md:hidden">
-        <button className="pointer-events-auto px-1 py-0.5 text-2xl hover:bg-stone-900/10">
-          <MdMenu />
-        </button>
-      </div>
-
       <div className="hidden h-full flex-col border-r border-border bg-card md:flex">
         <div className="flex items-center px-4 pt-6">
           <img className="mr-2 max-w-6" src="/images/logo/logo-128.png " />

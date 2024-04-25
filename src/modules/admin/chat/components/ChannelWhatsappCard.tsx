@@ -7,7 +7,7 @@ type ChannelWhatsappCardProps = {
 export function ChannelWhatsappCard(props: ChannelWhatsappCardProps) {
   return (
     <div className="flex max-w-96 rounded-md border border-border bg-card shadow">
-      <div className="flex flex-col px-3 pb-2 pt-3 text-sm">
+      <div className="flex flex-col px-4 pb-2 pt-3 text-sm">
         <div className="mb-2 flex items-center">
           <WhatsappIcon />
           <p className="w-fit ml-2 rounded-sm  font-semibold text-foreground">
