@@ -11,7 +11,7 @@ export function LoginPage() {
     navigate({ to: "/admin/" });
   }
   return (
-    <div className="min-h-screen bg-stone-100 lg:flex lg:flex-wrap">
+    <div className="min-h-screen bg-background lg:flex lg:flex-wrap">
       <AuthContainer>
         <div className="text-center">
           <Link to="/">
@@ -25,7 +25,7 @@ export function LoginPage() {
         </div>
 
         <form>
-          <h1 className="mb-4">Inicia sesión a tu cuenta</h1>
+          <h1 className="mb-4 text-foreground">Inicia sesión a tu cuenta</h1>
           <div className="flex flex-col">
             <AuthInput type="text" placeholder="Usuario" />
             <AuthInput type="text" placeholder="Contraseña" />
@@ -41,7 +41,7 @@ export function LoginPage() {
           </div>
 
           <div className="flex items-center justify-between pb-6">
-            <p className="mb-0 mr-2 text-sm font-medium text-stone-600">
+            <p className="mb-0 mr-2 text-sm font-medium text-muted-foreground">
               ¿No tienes una cuenta?
             </p>
             <BorderLink to="/register">Regístrate</BorderLink>
