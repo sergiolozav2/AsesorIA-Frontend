@@ -23,7 +23,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <ToastContainer closeOnClick />
-        <div className="flex min-h-screen flex-col bg-stone-100">
+        <div className="flex min-h-screen flex-col bg-background">
           <RouterProvider router={router} />
         </div>
       <ModeToggle />
