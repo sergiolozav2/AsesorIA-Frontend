@@ -27,8 +27,8 @@ export function LoginPage() {
         <form>
           <h1 className="mb-4 text-foreground">Inicia sesión a tu cuenta</h1>
           <div className="flex flex-col">
-            <AuthInput type="text" placeholder="Usuario" />
-            <AuthInput type="text" placeholder="Contraseña" />
+            <AuthInput type="email" placeholder="Usuario" />
+            <AuthInput type="password" placeholder="Contraseña" />
           </div>
 
           <div className="mb-12 pb-1 pt-1 text-center">
