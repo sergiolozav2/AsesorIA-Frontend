@@ -17,6 +17,7 @@ import { Route as AdminRouteImport } from './routes/admin/route'
 import { Route as AdminIndexImport } from './routes/admin/index'
 import { Route as AdminProductsImport } from './routes/admin/products'
 import { Route as AdminMetricsImport } from './routes/admin/metrics'
+import { Route as AdminHomeImport } from './routes/admin/home'
 import { Route as AdminEventsImport } from './routes/admin/events'
 import { Route as AdminClientsImport } from './routes/admin/clients'
 import { Route as AdminChatbotImport } from './routes/admin/chatbot'
@@ -80,6 +81,11 @@ const AdminProductsRoute = AdminProductsImport.update({
 
 const AdminMetricsRoute = AdminMetricsImport.update({
   path: '/metrics',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+
+const AdminHomeRoute = AdminHomeImport.update({
+  path: '/home',
   getParentRoute: () => AdminRouteRoute,
 } as any)
 
@@ -159,6 +165,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminEventsImport
       parentRoute: typeof AdminRouteImport
     }
+    '/admin/home': {
+      preLoaderRoute: typeof AdminHomeImport
+      parentRoute: typeof AdminRouteImport
+    }
     '/admin/metrics': {
       preLoaderRoute: typeof AdminMetricsImport
       parentRoute: typeof AdminRouteImport
@@ -212,6 +222,7 @@ export const routeTree = rootRoute.addChildren([
     AdminChatbotRoute,
     AdminClientsRoute,
     AdminEventsRoute,
+    AdminHomeRoute,
     AdminMetricsRoute,
     AdminProductsRoute,
     AdminIndexRoute,
