@@ -1,9 +1,6 @@
-import { ModuleSidebarLinkType } from "./types";
 
 type ModuleLayoutProps = {
   children: React.ReactNode;
-  title: string;
-  modules: ModuleSidebarLinkType[];
 };
 
 export function ModuleLayout(props: ModuleLayoutProps) {
