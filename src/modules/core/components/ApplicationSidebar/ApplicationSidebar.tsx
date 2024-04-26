@@ -9,6 +9,7 @@ import { SidebarLink } from "./components/SidebarLink";
 import { GoPackage } from "react-icons/go";
 import { TbSitemap } from "react-icons/tb";
 import { SidebarSection } from "./components/SidebarSection";
+import { LogoutButton } from "./components/LogoutButton";
 
 export function ApplicationSidebar() {
   return (
@@ -54,6 +55,7 @@ export function ApplicationSidebar() {
               text="Métricas"
               icon={<MdOutlineAnalytics />}
             />
+            <LogoutButton />
           </div>
         </div>
       </div>
