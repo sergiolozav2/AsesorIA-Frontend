@@ -1,10 +1,10 @@
-import { LoadingModule } from "../core/components/LoadingModule";
-import { ModuleTitle } from "../core/components/ModulesLayout";
 import { ChannelCardList } from "./components/ChannelCardList";
 import { useCreatedChannels } from "./hooks/useCreatedChannels";
 import { ChannelWhatsappCard } from "./components/ChannelWhatsappCard";
 import { useState } from "react";
 import { CreateChannelDialog } from "./components/CreateChannelDialog";
+import { ModuleTitle } from "../core/components/ModulesLayout";
+import { LoadingModule } from "../core/components/LoadingModule";
 
 export function ChatChannelsPage() {
   const { data, isLoading } = useCreatedChannels();

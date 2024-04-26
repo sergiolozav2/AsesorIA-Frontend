@@ -21,7 +21,7 @@ export function ProductsPage() {
             <div className="flex w-full flex-col pb-4">
               <div className="flex">
                 <p className="text-sm font-medium text-stone-600">Buses</p>
-                <div className="ml-auto rounded-full bg-primary-100 p-2 text-2xl text-primary-800">
+                <div className="bg-primary-100 text-primary-800 ml-auto rounded-full p-2 text-2xl">
                   <FaBus />
                 </div>
               </div>
@@ -34,7 +34,7 @@ export function ProductsPage() {
                 <p className="text-sm font-medium text-stone-600">
                   Buses activos
                 </p>
-                <div className="ml-auto rounded-full bg-primary-100 p-2 text-2xl font-medium text-primary-600">
+                <div className="bg-primary-100 text-primary-600 ml-auto rounded-full p-2 text-2xl font-medium">
                   <FaBolt />
                 </div>
               </div>
@@ -47,7 +47,7 @@ export function ProductsPage() {
                 <p className="text-sm font-medium text-stone-600">
                   Buses en movimiento
                 </p>
-                <div className="ml-auto rounded-full bg-primary-100 p-2 text-2xl text-primary-800">
+                <div className="bg-primary-100 text-primary-800 ml-auto rounded-full p-2 text-2xl">
                   <FaStopwatch />
                 </div>
               </div>

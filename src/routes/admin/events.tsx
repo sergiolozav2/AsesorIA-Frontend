@@ -1,5 +1,5 @@
+import { EventsPage } from "@/modules/events/EventsPage";
 import { createFileRoute } from "@tanstack/react-router";
-import { EventsPage } from "../../modules/admin/events/EventsPage";
 
 export const Route = createFileRoute("/admin/events")({
   component: Events,

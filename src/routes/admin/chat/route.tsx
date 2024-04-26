@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
-import { ModuleLayout } from "@/modules/admin/core/components/ModulesLayout";
+import { ModuleLayout } from "@/modules/core/components/ModulesLayout";
 
 export const Route = createFileRoute("/admin/chat")({
   component: ChatLayoutRoute,

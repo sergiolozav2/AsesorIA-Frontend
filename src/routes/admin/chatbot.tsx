@@ -1,5 +1,5 @@
+import { ChatbotPage } from "@/modules/chatbot/ChatbotPage";
 import { createFileRoute } from "@tanstack/react-router";
-import { ChatbotPage } from "../../modules/admin/chatbot/ChatbotPage";
 
 export const Route = createFileRoute("/admin/chatbot")({
   component: Chatbot,

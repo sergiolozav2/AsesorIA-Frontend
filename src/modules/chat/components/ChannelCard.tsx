@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
-import { formatToUserDate } from "../../core/utils/formatToUserDate";
 import { WhatsappIcon } from "./WhatsappIcon";
+import { formatToUserDate } from "@/modules/core/utils/formatToUserDate";
 
 type ChannelCardProps = {
   creadoEn: string;
