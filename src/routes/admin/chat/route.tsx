@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
-import { ChatLayout } from "../../../modules/admin/chat/ChatLayout";
+import { ModuleLayout } from "@/modules/admin/core/components/ModulesLayout";
 
 export const Route = createFileRoute("/admin/chat")({
   component: ChatLayoutRoute,
@@ -7,8 +7,8 @@ export const Route = createFileRoute("/admin/chat")({
 
 function ChatLayoutRoute() {
   return (
-    <ChatLayout>
+    <ModuleLayout>
       <Outlet />
-    </ChatLayout>
+    </ModuleLayout>
   );
 }
