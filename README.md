@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# AsesorIA - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto CRM creado con React y Typescript
 
-Currently, two official plugins are available:
+## Herramientas principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Shadcn/ui:](https://ui.shadcn.com/) Fuente de componentes con control total del código/estilo/funcionamiento de cada componente. Está dentro de ./src/components
 
-## Expanding the ESLint configuration
+- [TailwindCSS:](https://v2.tailwindcss.com/) Conjunto de clases de utilidades de CSS.
+- [Tanstack Router:](https://tanstack.com/router/latest) Router para React con mejor tipado para Typescript.
+- [Tanstack Query:](https://tanstack.com/query/latest) Herramienta para manejar peticiones y mutaciones asincronas.
+- [Zod:](https://zod.dev/)
+  Librería de validación de esquemas con soporte para Typescript
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Scripts
 
-- Configure the top-level `parserOptions` property like this:
+### Para desarrollo rápido
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- npm run dev
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Para producción
+
+- npm run build
+
+### Para generar código de backend
+
+Se necesita el servidor ejecutandose en localhost:5000 para conseguir las especificaciones de la API y que openapi-typescript-codegen pueda generar el código
+
+- npm run generate:backend
