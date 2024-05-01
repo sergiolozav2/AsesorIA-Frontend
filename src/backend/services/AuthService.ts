@@ -13,18 +13,13 @@ export class AuthService {
      */
     public static postAuthRegister(
         body?: {
-            usuario: {
-                nombre: string;
-                apellido: string;
-                segundoApellido: string;
-                correo: string;
-                telefono: string;
+            user: {
+                fullName: string;
                 password: string;
-                verificado?: boolean;
+                email: string;
+                verified: boolean;
             };
-            empresa: {
-                nombreEmpresa: string;
-            };
+            company: any;
         },
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -40,30 +35,14 @@ export class AuthService {
      */
     public static postAuthLogin(
         body?: {
-            email: string;
             password: string;
+            email: string;
         },
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/auth/login',
             body: body,
-        });
-    }
-    /**
-     * @param authorization
-     * @returns any Default Response
-     * @throws ApiError
-     */
-    public static postAuthRefreshToken(
-        authorization: string,
-    ): CancelablePromise<any> {
-        return __request(OpenAPI, {
-            method: 'POST',
-            url: '/auth/refreshToken',
-            headers: {
-                'authorization': authorization,
-            },
         });
     }
 }

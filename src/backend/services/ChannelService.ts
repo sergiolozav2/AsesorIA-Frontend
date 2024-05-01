@@ -5,22 +5,21 @@
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-export class ChatService {
+export class ChannelService {
     /**
-     * Ruta para obtener chats de un WA_Sesion
-     * @param body
      * @returns any Default Response
      * @throws ApiError
      */
-    public static postChat(
-        body?: {
-            wa_sesionID: string;
-        },
-    ): CancelablePromise<any> {
+    public static getChannelSessions(): CancelablePromise<{
+        list: Array<{
+            waSessionID: string;
+            name: string;
+            createdAt: string;
+        }>;
+    }> {
         return __request(OpenAPI, {
-            method: 'POST',
-            url: '/chat/',
-            body: body,
+            method: 'GET',
+            url: '/channel/sessions',
         });
     }
 }
