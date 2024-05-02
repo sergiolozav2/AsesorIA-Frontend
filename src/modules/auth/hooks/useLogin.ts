@@ -1,4 +1,5 @@
 import { AuthService } from "@/backend";
+import { ApiError } from "@/backend/core/ApiError";
 import { useAuthStore } from "@/modules/core/store/useAuthStore";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
@@ -13,8 +14,8 @@ export function useLogin() {
       setLoggedIn();
       navigate({ to: "/admin/" });
     },
-    onError: () => {
-      toast.error("Correo o contraseñas incorrectas");
+    onError: (error: ApiError) => {
+      toast.error(error.body.message ?? error.message);
     },
   });
 
