@@ -17,7 +17,6 @@ export function ApplicationSidebar() {
   const isOpen = useSidebarStore((state) => state.isOpen);
 
   const sidebarClass = isOpen ? "" : "hidden";
-  const contentClass = isOpen ? "" : "scale-x-0";
   const componentClass = isOpen ? "" : "pointer-events-none";
   return (
     <div
@@ -31,9 +30,7 @@ export function ApplicationSidebar() {
           <img className="mr-2 max-w-6" src="/images/logo/logo-128.png " />
           <p className="font-semibold text-foreground">Asesor.IA</p>
         </div>
-        <div
-          className={`${contentClass} h-full origin-left pt-4 transition-transform md:scale-x-100`}
-        >
+        <div className="h-full origin-left pt-4">
           <div className="flex flex-col gap-1.5 pl-3 pr-2 pt-4 font-medium">
             <SidebarLink
               to="/admin/home"
