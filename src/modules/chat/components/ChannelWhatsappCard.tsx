@@ -10,7 +10,7 @@ export function ChannelWhatsappCard(props: ChannelWhatsappCardProps) {
       <div className="flex flex-col px-4 pb-2 pt-3 text-sm">
         <div className="mb-2 flex items-center">
           <WhatsappIcon />
-          <p className="w-fit ml-2 rounded-sm  font-semibold text-foreground">
+          <p className="ml-2 w-fit rounded-sm font-medium text-foreground">
             Whatsapp
           </p>
         </div>
