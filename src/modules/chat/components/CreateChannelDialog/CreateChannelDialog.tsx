@@ -2,10 +2,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { WhatsappQrContainer } from "./components/WhatsappQrContainer";
 
 type CreateChannelDialogProps = {
   open: boolean;
@@ -20,17 +20,15 @@ export function CreateChannelDialog(props: CreateChannelDialogProps) {
     >
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Enlazar cuenta de Whatsapp</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Para hallar el escáner QR de WhatsApp, toca Menú - Dispositivos
+            vinculados - Vincular un dispositivo.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4"></div>
+        <div className="flex items-center justify-center">
+          <WhatsappQrContainer />
         </div>
-        <DialogFooter >
-          <button type="submit">Save changes</button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
