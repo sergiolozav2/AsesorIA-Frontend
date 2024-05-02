@@ -1,3 +1,4 @@
+import { Input } from "@/components/ui/input";
 import { InputHTMLAttributes } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
@@ -7,8 +8,8 @@ type AuthInputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 export function AuthInput(props: AuthInputProps) {
   return (
-    <input
-      className="mb-4 rounded-sm border bg-background px-2 py-1 outline-primary/75"
+    <Input
+      className="mb-4 bg-input autofill:bg-transparent!"
       {...props}
       {...props.register}
     />
