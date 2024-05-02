@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChatSearchBar } from "./components/ChatSearchBar";
 import { ChatUserTile } from "./components/ChatUserTile";
 import { ChatWindowTab } from "./components/ChatWindowTab";
+import { getMessageText } from "../../utils/getTextFromMessage";
 
 type ChatWindowProps = {
   chats: Chat[];
@@ -28,9 +29,9 @@ export function ChatWindow(props: ChatWindowProps) {
           {props.chats.map((chat) => (
             <ChatUserTile
               key={chat.chatID}
-              pushName={chat.contactInfo.pushName}
-              profilePicture={chat.contactInfo.profilePicture}
-              message={chat.mensajes[0]?.message}
+              pushName={chat.pushName}
+              profilePicture={chat.pushName}
+              message={getMessageText(chat.messages[chat.messages.length - 1])}
               onClick={() => setChat(chat)}
             />
           ))}
@@ -52,21 +53,19 @@ export function ChatWindow(props: ChatWindowProps) {
 export interface Chat {
   chatID: number;
   jid: string;
-  creadoEn: string;
-  clienteID: number;
-  cliente: null;
-  mensajes: Mensaje[];
-  contactInfo: ContactInfo;
+  pushName: string;
+  messages: Mensaje[];
 }
 
-export interface ContactInfo {
-  senderID: number;
-  pushName: string;
-  profilePicture: string;
+export interface MessageContent {
+  conversation?: string;
+  extendedTextMessage?: {
+    text: string;
+  };
 }
 
 export interface Mensaje {
-  self: boolean;
-  message: string;
-  datetime: number;
+  fromMe: boolean;
+  content: MessageContent;
+  createdAt: string;
 }

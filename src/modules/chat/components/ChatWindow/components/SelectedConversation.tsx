@@ -6,6 +6,7 @@ import { MessageCard } from "./MessageCard";
 import { useScrollToBottom } from "../../../hooks/useScrollToBottom";
 import { SendMessageInput } from "./SendMessageInput";
 import { MdArrowBack } from "react-icons/md";
+import { getMessageText } from "@/modules/chat/utils/getTextFromMessage";
 
 type ConversationWindowProps = {
   handleUnselectChat: () => void;
@@ -13,7 +14,6 @@ type ConversationWindowProps = {
 };
 export function SelectedConversation(props: ConversationWindowProps) {
   const { chat } = props;
-  const { contactInfo } = chat;
 
   const scrollBottomRef = useScrollToBottom();
   return (
@@ -26,21 +26,20 @@ export function SelectedConversation(props: ConversationWindowProps) {
           <MdArrowBack className="text-lg" />
         </button>
         <Avatar className="ml-1 md:ml-3">
-          <AvatarImage src={contactInfo.profilePicture} />
-          <AvatarFallback>
-            {getInitialsFromName(contactInfo.pushName)}
-          </AvatarFallback>
+          <AvatarImage src={chat.pushName} />
+          <AvatarFallback>{getInitialsFromName(chat.pushName)}</AvatarFallback>
         </Avatar>
-        <p className="ml-4 font-medium">{contactInfo.pushName}</p>
+        <p className="ml-4 font-medium">{chat.pushName}</p>
       </div>
       <div className="absolute bottom-[75px] left-0 right-0 top-[75px]  overflow-y-auto bg-card">
         <ScrollArea className="h-full overflow-y-auto">
           <div ref={scrollBottomRef} className="flex flex-col gap-4 px-4 py-6">
-            {props.chat.mensajes.map((message, index) => (
+            {props.chat.messages.map((message, index) => (
               <MessageCard
                 key={index}
-                message={message.message}
-                self={message.self}
+                message={getMessageText(message)}
+                fromMe={message.fromMe}
+                createdAt={message.createdAt}
               />
             ))}
           </div>

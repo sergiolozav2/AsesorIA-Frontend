@@ -10,3 +10,13 @@ export function formatToUserDate(date: string | Date) {
 
   return date.toLocaleDateString();
 }
+
+export function formatOnlyTime(date: string) {
+  return new Date(date)
+    .toLocaleString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    })
+    .replace(/AM|PM/, "");
+}
