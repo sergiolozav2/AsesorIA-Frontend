@@ -5,4 +5,5 @@
 
 export { AuthService } from './services/AuthService';
 export { ChannelService } from './services/ChannelService';
+export { ChatService } from './services/ChatService';
 export { WhatsappService } from './services/WhatsappService';
