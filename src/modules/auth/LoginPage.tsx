@@ -1,14 +1,27 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, Navigate } from "@tanstack/react-router";
 import { AuthInput } from "./components/AuthInput";
 import { ImageContainer } from "./components/ImageContainer";
 import { AuthButton } from "./components/AuthButton";
 import { AuthContainer } from "./components/AuthContainer";
 import { BorderLink } from "./components/BorderLink";
+import { useForm } from "react-hook-form";
+import { useLogin } from "./hooks/useLogin";
+import { useAuthStore } from "../core/store/useAuthStore";
 
+type Inputs = {
+  email: string;
+  password: string;
+};
 export function LoginPage() {
-  const navigate = useNavigate();
-  function handleLogin() {
-    navigate({ to: "/admin/" });
+  const { register, handleSubmit } = useForm<Inputs>();
+  const { login } = useLogin();
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  async function onSubmit(data: Inputs) {
+    login(data);
+  }
+
+  if (isLoggedIn) {
+    return <Navigate to="/admin/" />;
   }
   return (
     <div className="min-h-screen bg-background lg:flex lg:flex-wrap">
@@ -24,17 +37,23 @@ export function LoginPage() {
           <h4 className="mb-12 mt-1 pb-1 text-xl font-medium">Asesor.IA</h4>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="mb-4 text-foreground">Inicia sesión a tu cuenta</h1>
           <div className="flex flex-col">
-            <AuthInput type="email" placeholder="Usuario" />
-            <AuthInput type="password" placeholder="Contraseña" />
+            <AuthInput
+              type="email"
+              placeholder="Usuario"
+              register={register("email")}
+            />
+            <AuthInput
+              type="password"
+              placeholder="Contraseña"
+              register={register("password")}
+            />
           </div>
 
           <div className="mb-12 pb-1 pt-1 text-center">
-            <AuthButton onClick={handleLogin} type="button">
-              Iniciar sesión
-            </AuthButton>
+            <AuthButton type="submit">Iniciar sesión</AuthButton>
             <a href="#!" className="text-sm font-medium">
               ¿Contraseña olvidada?
             </a>

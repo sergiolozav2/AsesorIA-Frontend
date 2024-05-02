@@ -1,11 +1,14 @@
 import { MdLogout } from "react-icons/md";
 import { SidebarTitle } from "./SidebarTitle";
 import { useNavigate } from "@tanstack/react-router";
+import { useAuthStore } from "@/modules/core/store/useAuthStore";
 
 export function LogoutButton() {
   const navigate = useNavigate();
+  const setLoggedOut = useAuthStore((state) => state.setLoggedOut);
 
   function handleLogout() {
+    setLoggedOut();
     navigate({ to: "/login" });
   }
   return (
