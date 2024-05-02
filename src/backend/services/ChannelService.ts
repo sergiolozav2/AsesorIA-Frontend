@@ -22,4 +22,20 @@ export class ChannelService {
             url: '/channel/sessions',
         });
     }
+    /**
+     * @param body
+     * @returns any Default Response
+     * @throws ApiError
+     */
+    public static postChannelResetSession(
+        body?: {
+            waSessionID: string;
+        },
+    ): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/channel/reset-session',
+            body: body,
+        });
+    }
 }
