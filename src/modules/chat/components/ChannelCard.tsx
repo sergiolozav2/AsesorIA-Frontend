@@ -3,8 +3,8 @@ import { WhatsappIcon } from "./WhatsappIcon";
 import { formatToUserDate } from "@/modules/core/utils/formatToUserDate";
 
 type ChannelCardProps = {
-  creadoEn: string;
-  wa_sesionID: string;
+  createdAt: string;
+  waSessionID: string;
 };
 export function ChannelCard(props: ChannelCardProps) {
   return (
@@ -13,11 +13,11 @@ export function ChannelCard(props: ChannelCardProps) {
       <div className="ml-4 flex flex-col">
         <div className="flex items-center">
           <p className="font-medium">
-            Canal de Whatsapp ({formatSesionID(props.wa_sesionID)})
+            Canal de Whatsapp ({formatSesionID(props.waSessionID)})
           </p>
         </div>
         <p className="mt-0.5 text-muted-foreground">
-          Creado el: {formatToUserDate(props.creadoEn)}
+          Creado el: {formatToUserDate(props.createdAt)}
         </p>
       </div>
       <button
