@@ -19,7 +19,10 @@ export class AuthService {
                 email: string;
                 verified: boolean;
             };
-            company: any;
+            company: {
+                name: string;
+                ownerID: number;
+            };
         },
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -38,11 +41,34 @@ export class AuthService {
             password: string;
             email: string;
         },
-    ): CancelablePromise<any> {
+    ): CancelablePromise<{
+        user: {
+            userID: number;
+            fullName: string;
+            password: string;
+            email: string;
+            verified: boolean;
+        };
+        company: {
+            companyID: number;
+            name: string;
+            ownerID: number;
+        };
+    }> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/auth/login',
             body: body,
+        });
+    }
+    /**
+     * @returns any Default Response
+     * @throws ApiError
+     */
+    public static postAuthLogout(): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/auth/logout',
         });
     }
 }
