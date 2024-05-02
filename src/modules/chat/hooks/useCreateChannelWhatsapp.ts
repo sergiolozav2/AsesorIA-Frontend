@@ -15,7 +15,7 @@ export function useCreateChannelWhatsapp() {
       setQr(event.data as string);
     }
 
-    if (event.name === "scanned") {
+    if (event.name === "open") {
       setScanned(true);
     }
   }, [event, event.data, event.name]);
