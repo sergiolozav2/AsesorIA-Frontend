@@ -4,7 +4,7 @@ import { SelectedConversation } from "./SelectedConversation";
 import { Chat } from "../ChatWindow";
 
 type ChatWindowProps = {
-  chat: Chat | null;
+  chat: Chat | undefined;
   handleUnselectChat: () => void;
 };
 

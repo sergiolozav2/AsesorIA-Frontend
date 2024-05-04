@@ -9,13 +9,13 @@ type ChatWindowProps = {
 };
 
 export function ChatWindow(props: ChatWindowProps) {
-  const [selectedChat, setChat] = useState<Chat | null>(null);
+  const [selectedChatID, setChatID] = useState<number | null>(null);
 
-  const showChats = !selectedChat ? "" : "hidden md:flex";
-  const showMessages = selectedChat ? "" : "hidden";
+  const showChats = !selectedChatID ? "" : "hidden md:flex";
+  const showMessages = selectedChatID ? "" : "hidden";
 
   function handleUnselectChat() {
-    setChat(null);
+    setChatID(null);
   }
   return (
     <div className="flex h-full w-full">
@@ -32,7 +32,7 @@ export function ChatWindow(props: ChatWindowProps) {
               pushName={chat.pushName}
               profilePicture={chat.pushName}
               message={getMessageText(chat.messages[chat.messages.length - 1])}
-              onClick={() => setChat(chat)}
+              onClick={() => setChatID(chat?.chatID)}
             />
           ))}
         </div>
@@ -41,8 +41,8 @@ export function ChatWindow(props: ChatWindowProps) {
         className={`${showMessages} w-full min-w-64 rounded-lg border border-border bg-card md:flex md:rounded-l-none md:rounded-r-lg md:border-l-0`}
       >
         <ChatWindowTab
-          key={selectedChat?.chatID}
-          chat={selectedChat}
+          key={selectedChatID}
+          chat={props.chats.find((chat) => chat.chatID === selectedChatID)}
           handleUnselectChat={handleUnselectChat}
         />
       </div>
