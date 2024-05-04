@@ -1,12 +1,22 @@
-import { toast } from "react-toastify";
 import { WhatsappIcon } from "./WhatsappIcon";
 import { formatToUserDate } from "@/modules/core/utils/formatToUserDate";
+import { useDeleteChannel } from "../hooks/useDeleteChannel";
+import { Button } from "@/components/ui/button";
 
 type ChannelCardProps = {
   createdAt: string;
   waSessionID: string;
+  onDelete: () => void;
 };
 export function ChannelCard(props: ChannelCardProps) {
+  const { deleteChannel, isPending } = useDeleteChannel({
+    onSuccess: props.onDelete,
+  });
+  function handleDeleteCard() {
+    deleteChannel({
+      waSessionID: props.waSessionID,
+    });
+  }
   return (
     <div className="flex items-center rounded border-b border-border px-5 py-3">
       <WhatsappIcon />
@@ -20,12 +30,14 @@ export function ChannelCard(props: ChannelCardProps) {
           Creado el: {formatToUserDate(props.createdAt)}
         </p>
       </div>
-      <button
-        className="ml-auto w-fit rounded-md bg-destructive px-2 py-1 font-semibold text-destructive-foreground shadow-md hover:underline"
-        onClick={() => toast.warning("No implementado aún")}
+      <Button
+        className="ml-auto px-2 py-1 font-semibold"
+        variant="destructive"
+        onClick={handleDeleteCard}
+        disabled={isPending}
       >
         Eliminar
-      </button>
+      </Button>
     </div>
   );
 }

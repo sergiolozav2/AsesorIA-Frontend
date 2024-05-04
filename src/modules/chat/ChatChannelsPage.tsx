@@ -1,13 +1,13 @@
-import { ChannelCardList } from "./components/ChannelCardList";
 import { useCreatedChannels } from "./hooks/useCreatedChannels";
 import { ChannelWhatsappCard } from "./components/ChannelWhatsappCard";
 import { useState } from "react";
 import { CreateChannelDialog } from "./components/CreateChannelDialog/CreateChannelDialog";
 import { ModuleTitle } from "../core/components/ModulesLayout";
 import { LoadingModule } from "../core/components/LoadingModule";
+import { ChannelCard } from "./components/ChannelCard";
 
 export function ChatChannelsPage() {
-  const { data, isLoading } = useCreatedChannels();
+  const { data, isLoading, refetch } = useCreatedChannels();
 
   const [showDialog, setShowDialog] = useState(false);
 
@@ -19,8 +19,12 @@ export function ChatChannelsPage() {
     setShowDialog(false);
   }
 
+  function onDeleteChannel() {
+    refetch();
+  }
+
   return (
-    <div className="flex w-full flex-col md:px-8 px-4">
+    <div className="flex w-full flex-col px-4 md:px-8">
       <ModuleTitle>Canales</ModuleTitle>
       <div className="mt-4 flex flex-col text-sm">
         <h4 className="mb-2 text-foreground">Canales disponibles</h4>
@@ -29,7 +33,15 @@ export function ChatChannelsPage() {
           <p className="mb-2 text-foreground">Tus canales</p>
           {isLoading && <LoadingModule />}
           <div className="flex flex-col gap-4">
-            {data && <ChannelCardList list={data.list} />}
+            {data &&
+              data.list.map((channel) => (
+                <ChannelCard
+                  key={channel.waSessionID}
+                  createdAt={channel.createdAt}
+                  waSessionID={channel.waSessionID}
+                  onDelete={onDeleteChannel}
+                />
+              ))}
           </div>
         </div>
       </div>

@@ -27,14 +27,16 @@ export class ChannelService {
      * @returns any Default Response
      * @throws ApiError
      */
-    public static postChannelResetSession(
+    public static deleteChannelSession(
         body?: {
             waSessionID: string;
         },
-    ): CancelablePromise<any> {
+    ): CancelablePromise<{
+        waSessionID: string;
+    }> {
         return __request(OpenAPI, {
-            method: 'POST',
-            url: '/channel/reset-session',
+            method: 'DELETE',
+            url: '/channel/session',
             body: body,
         });
     }
