@@ -86,7 +86,7 @@ export function SelectedConversation(props: ConversationWindowProps) {
       >
         <AccordionItem className="flex h-full" value="info">
           <AccordionContent
-            className={`${classContactInfo} h-full w-full border-l xl:w-96`}
+            className={`${classContactInfo} h-full w-full xl:border-l xl:w-96`}
           >
             <ContactInfo
               chat={props.chat}
