@@ -18,6 +18,9 @@ export default {
         smd: "13px",
         md: "15px",
       },
+      height: {
+        "chat-header": "var(--chat-header-height)",
+      },
       width: {
         "admin-navbar": "var(--admin-navbar-width)",
         "module-navbar": "var(--module-navbar-width)",
@@ -74,17 +77,17 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: { width: "0" },
+          to: { width: "var(--radix-accordion-content-width)" },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: { width: "var(--radix-accordion-content-width)" },
+          to: { width: "0" },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "accordion-down": "accordion-down 0.2s ease-out forwards",
+        "accordion-up": "accordion-up 0.2s ease-out forwards",
       },
     },
   },

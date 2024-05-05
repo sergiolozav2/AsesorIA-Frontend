@@ -20,6 +20,8 @@ body {
   :root {
     --admin-navbar-width: 14rem;
     --module-navbar-width: 13rem;
+    --chat-header-height: 75px;
+
     --background: 300 100% 99%;
     --foreground: 240 7% 11%;
     --card: 243 5% 95%;
