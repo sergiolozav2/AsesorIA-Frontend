@@ -29,8 +29,8 @@ export function ChatWindow(props: ChatWindowProps) {
           {props.chats.map((chat) => (
             <ChatUserTile
               key={chat.chatID}
-              pushName={chat.pushName}
-              profilePicture={chat.pushName}
+              pushName={chat?.client?.firstName}
+              profilePicture={chat?.client?.profilePicture}
               message={getMessageText(chat.messages[chat.messages.length - 1])}
               onClick={() => setChatID(chat?.chatID)}
             />
@@ -53,7 +53,7 @@ export function ChatWindow(props: ChatWindowProps) {
 export interface Chat {
   chatID: number;
   jid: string;
-  pushName: string;
+  client: Client;
   messages: Mensaje[];
 }
 
@@ -68,4 +68,11 @@ export interface Mensaje {
   fromMe: boolean;
   content: MessageContent;
   createdAt: string;
+}
+
+export interface Client {
+  clientID: number;
+  firstName: string;
+  phone: string;
+  profilePicture: string;
 }

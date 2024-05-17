@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export function useChats() {
   const query = useQuery({
-    queryFn: ChatService.postChatAll,
+    queryFn: ChatService.getChatAll,
     queryKey: ["chats"],
   });
 

@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getInitialsFromName } from "../../../utils/getInitialsFromName";
+import { env } from "@/env";
 
 type ChatUserTileProps = {
   pushName: string;
@@ -14,7 +15,7 @@ export function ChatUserTile(props: ChatUserTileProps) {
       onClick={props.onClick}
     >
       <Avatar>
-        <AvatarImage src={props.profilePicture} />
+        <AvatarImage src={`${env.VITE_S3_URL}${props.profilePicture}`} />
         <AvatarFallback>{getInitialsFromName(props.pushName)}</AvatarFallback>
       </Avatar>
       <div className="ml-3.5 flex flex-col overflow-hidden py-2">

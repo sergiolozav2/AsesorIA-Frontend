@@ -34,10 +34,11 @@ export function SelectedConversation(props: ConversationWindowProps) {
     setOpenContactInfo(false);
   }
   const scrollBottomRef = useScrollToBottom();
+  const { client } = chat;
   return (
     <div className="relative flex h-full w-full">
       <div className="relative flex h-full max-h-full w-full flex-col justify-between">
-        <div className="h-chat-header flex items-center border-b border-border pl-1">
+        <div className="flex h-chat-header items-center border-b border-border pl-1">
           <button
             className="flex rounded-full p-2 hover:bg-foreground/15 md:hidden"
             onClick={props.handleUnselectChat}
@@ -49,12 +50,12 @@ export function SelectedConversation(props: ConversationWindowProps) {
             onClick={handleShowContactInfo}
           >
             <Avatar className="ml-1 md:ml-3">
-              <AvatarImage src={chat.pushName} />
+              <AvatarImage src={client?.profilePicture} />
               <AvatarFallback>
-                {getInitialsFromName(chat.pushName)}
+                {getInitialsFromName(client?.firstName)}
               </AvatarFallback>
             </Avatar>
-            <p className="ml-4 font-medium">{chat.pushName}</p>
+            <p className="ml-4 font-medium">{client?.firstName}</p>
           </button>
         </div>
         <div className="absolute bottom-[75px] left-0 right-0 top-[75px]  overflow-y-auto bg-card">
@@ -86,7 +87,7 @@ export function SelectedConversation(props: ConversationWindowProps) {
       >
         <AccordionItem className="flex h-full" value="info">
           <AccordionContent
-            className={`${classContactInfo} h-full w-full xl:border-l xl:w-96`}
+            className={`${classContactInfo} h-full w-full xl:w-96 xl:border-l`}
           >
             <ContactInfo
               chat={props.chat}
