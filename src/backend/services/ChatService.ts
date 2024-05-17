@@ -10,11 +10,16 @@ export class ChatService {
      * @returns any Default Response
      * @throws ApiError
      */
-    public static postChatAll(): CancelablePromise<{
+    public static getChatAll(): CancelablePromise<{
         list: Array<{
             chatID: number;
             jid: string;
-            pushName: string;
+            client: {
+                clientID: number;
+                firstName: string;
+                phone: string;
+                profilePicture: string;
+            };
             messages: Array<{
                 fromMe: boolean;
                 content: any;
@@ -23,7 +28,7 @@ export class ChatService {
         }>;
     }> {
         return __request(OpenAPI, {
-            method: 'POST',
+            method: 'GET',
             url: '/chat/all',
         });
     }

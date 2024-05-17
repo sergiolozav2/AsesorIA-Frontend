@@ -6,4 +6,5 @@
 export { AuthService } from './services/AuthService';
 export { ChannelService } from './services/ChannelService';
 export { ChatService } from './services/ChatService';
+export { FileService } from './services/FileService';
 export { WhatsappService } from './services/WhatsappService';
